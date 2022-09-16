@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MainHeaderApp extends StatelessWidget {
   const MainHeaderApp({
@@ -24,8 +25,8 @@ class MainHeaderApp extends StatelessWidget {
                 const Text("Livraison Rapide", style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18 ),),
-                Text("en ligne"),
-                SizedBox(height: 8),
+                const Text("de nourriture", style: TextStyle(color: Colors.black54),),
+                const SizedBox(height: 8),
                 Container(
                   padding: const EdgeInsets.all(7),
                   decoration: BoxDecoration(

@@ -10,8 +10,8 @@ class MainDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     List<dynamic> menus = [
       {"title": "Home", "route": "/", "leadingIcon": Icons.home, "trailingIcon": Icons.arrow_forward},
-      {"title": "Counter stfull", "route": "/counter1", "leadingIcon": Icons.event, "trailingIcon": Icons.arrow_forward},
-      {"title": "Counter bloc", "route": "/counter2", "leadingIcon": Icons.timer, "trailingIcon": Icons.arrow_forward},
+      {"title": "Detail", "route": "/details", "leadingIcon": Icons.event, "trailingIcon": Icons.arrow_forward},
+      {"title": "My cart", "route": "/myCart", "leadingIcon": Icons.timer, "trailingIcon": Icons.arrow_forward},
       {"title": "User", "route": "/", "leadingIcon": Icons.person, "trailingIcon": Icons.arrow_forward},
     ];
     return Drawer(

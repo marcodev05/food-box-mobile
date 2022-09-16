@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_box/blocs/category/category.bloc.dart';
+import 'package:food_box/blocs/category/category.state.dart';
+import 'package:food_box/ui/widgets/smalltext.widget.dart';
 
 import '../../models/category.model.dart';
+import 'bigtext.widget.dart';
+import 'category.item.widget.dart';
 
 class CategoryCarousel extends StatelessWidget {
   const CategoryCarousel({Key? key}) : super(key: key);
@@ -9,61 +15,37 @@ class CategoryCarousel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Text("Categories", style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 1.5
-            ),
-            )
-          ],
-        ),
+        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          BigText(text: 'Categories', size: 17),
+        ]),
 
         /** carousel **/
 
-        Container(
-            height: 140,
-            //color: Colors.blue,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: categories.length,
-              itemBuilder: (BuildContext context, int index) {
-                Category category = categories[index];
-                return Container(
-                  margin: const EdgeInsets.all(4),
-                  width: 90,
+        BlocBuilder<CategoriesBloc, CategoriesState>(
+          builder: (context, state) {
+            if (state is CategoriesLoadingState) {
+              return const CircularProgressIndicator();
+            }
+            if (state is CategoriesErrorState) {
+              return SmallText(text: state.message, color: Colors.redAccent,);
+            }
+            if (state is CategoriesLoadedState) {
+              return Container(
                   height: 130,
-                  decoration: BoxDecoration(
-                      //color: Colors.white,
-                      borderRadius: BorderRadius.circular(30.0)),
-                  child: Column(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.all(10),
-                        width: 80,
-                        height: 80,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(50.0)),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image(
-                                image: AssetImage(category.picture), height: 50)
-                          ],
-                        ),
-                      ),
-                      Text(category.name,
-                          style: const TextStyle(
-                              color: Colors.red, fontWeight: FontWeight.w400))
-                    ],
-                  ),
-                );
-
-              },
-            ))
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: state.categories.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      Category category = state.categories[index];
+                      return ItemCategory(category: category);
+                    },
+                  ));
+            }
+            else {
+              return SmallText(text: "Something went wrong", color: Colors.redAccent,);;
+            }
+          },
+        )
       ],
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_box/ui/widgets/smalltext.widget.dart';
 
 class SearchBar extends StatelessWidget {
   const SearchBar({
@@ -17,9 +18,9 @@ class SearchBar extends StatelessWidget {
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const [
-          Text("Search your favorite food", style: TextStyle(color: Colors.black26)),
-          Icon(Icons.search)
+        children: [
+          SmallText(text: "Search your favorite food"),
+          const Icon(Icons.search)
         ],
       ),
     );
