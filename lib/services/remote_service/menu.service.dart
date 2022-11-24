@@ -7,10 +7,11 @@ class MenuService {
 
   Future<List<Menu>> fetchAllMenus() async {
     String url = "http://192.168.43.187:8082/public/v1/menus/available";
+    http.Response response = await http.get(Uri.parse(url));
     try {
-      http.Response response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
-        List<dynamic> menuMap = json.decode(response.body);
+        List menuMap = json.decode(response.body);
+          //return menuMap.map((e) => Menu.fromJson(e)).toList();
         List<Menu> menus = <Menu>[];
         for (Map<String, dynamic> element in menuMap) {
           menus.add(Menu.fromJson(element));
@@ -21,7 +22,10 @@ class MenuService {
       }
 
     } catch (ex) {
-      return throw (ex.toString());
+      print(ex);
+      return throw (" Error ${ex.toString()}");
+    } finally{
+      print(response.statusCode);
     }
   }
 }

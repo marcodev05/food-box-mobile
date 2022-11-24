@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_box/blocs/cart/cart.bloc.dart';
 import 'package:food_box/blocs/category/category.bloc.dart';
 import 'package:food_box/route.generator.dart';
+import 'package:food_box/ui/pages/splash/splash_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'blocs/category/category.event.dart';
+import 'blocs/counter/counter.bloc.dart';
 import 'blocs/menu/menu.bloc.dart';
 import 'blocs/menu/menu.event.dart';
 
@@ -26,6 +29,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(
             create: (context) => CategoriesBloc()..add(LoadCategoriesEvent())),
         BlocProvider(create: (context) => MenusBloc()..add(LoadMenusEvent())),
+        BlocProvider(create: (context) => CartBloc()),
+        BlocProvider(create: (context) => CounterBloc()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -47,7 +52,8 @@ class MyApp extends StatelessWidget {
               onSurface: Color(0xFFFFEECC)),
           textTheme: GoogleFonts.robotoTextTheme(),
         ),
-        initialRoute: '/',
+        //home: const SplashScreen(),
+        initialRoute: '/splash',
         onGenerateRoute: RouteGenerator.generateRoute
       ),
     );

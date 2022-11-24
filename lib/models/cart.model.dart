@@ -1,35 +1,34 @@
-class Cart {
+import 'package:equatable/equatable.dart';
+import 'package:food_box/models/menu.model.dart';
+
+class CartItem extends Equatable{
   int? cartId;
-  late String name;
-  late double price;
-  String? picture;
+  late Menu menu;
   late int quantity;
 
-  Cart({
+  CartItem({
     this.cartId,
-    required this.name,
-    required this.price,
-    this.picture,
+    required this.menu,
     required this.quantity,
   });
 
 
-  Cart.fromJson(Map<String, dynamic> json) {
+  CartItem.fromJson(Map<String, dynamic> json) {
     cartId = json['cartId'];
-    name = json['name'];
     quantity = json['quantity'];
-    price = json['price'];
-    picture = json['picture'];
+    menu = Menu.fromJson(json['menu']);
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data['cartId'] = cartId;
-    data['name'] = name;
     data['quantity'] = quantity;
-    data['price'] =price;
-    data['picture'] = picture;
+    data['menu'] = menu!.toJson();
     return data;
   }
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [];
   
 }

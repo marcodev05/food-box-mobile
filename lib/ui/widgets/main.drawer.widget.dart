@@ -13,6 +13,7 @@ class MainDrawer extends StatelessWidget {
       {"title": "Detail", "route": "/details", "leadingIcon": Icons.event, "trailingIcon": Icons.arrow_forward},
       {"title": "My cart", "route": "/myCart", "leadingIcon": Icons.timer, "trailingIcon": Icons.arrow_forward},
       {"title": "User", "route": "/", "leadingIcon": Icons.person, "trailingIcon": Icons.arrow_forward},
+      {"title": "Login", "route": "/login", "leadingIcon": Icons.person, "trailingIcon": Icons.arrow_forward},
     ];
     return Drawer(
       child: Column(children: [

@@ -2,31 +2,41 @@ import 'package:flutter/material.dart';
 
 class Category {
   int? categoryId;
-  String? name;
-  String? description;
+  late String name;
+  late String description;
   String? picture;
+  String? createdAt;
 
-  Category({this.categoryId, this.name, this.description, this.picture});
+  Category(
+      {
+        this.categoryId,
+        required this.name,
+        required this.description,
+        this.picture,
+        this.createdAt
+      });
 
   Category.fromJson(Map<String, dynamic> json) {
     categoryId = json['categoryId'];
     name = json['name'];
     description = json['description'];
     picture = json['picture'];
+    createdAt = json['createdAt'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['categoryId'] = categoryId;
-    data['name'] = name;
-    data['description'] = description;
-    data['picture'] = picture;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['categoryId'] = this.categoryId;
+    data['name'] = this.name;
+    data['description'] = this.description;
+    data['picture'] = this.picture;
+    data['createdAt'] = this.createdAt;
     return data;
   }
-
 }
 
-List<Category> categories = [
+
+/*List<Category> categories = [
   Category(
       name: "Burger",
       description: "burger king",
@@ -47,7 +57,7 @@ List<Category> categories = [
       name: "Boisson",
       description: "boisson king",
       picture: "assets/test/burger.png"),
-];
+];*/
 
 
 

@@ -9,20 +9,29 @@ class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10),
-      padding: const EdgeInsets.all(12),
-      height: 40,
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(15.0)
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SmallText(text: "Search your favorite food"),
-          const Icon(Icons.search)
-        ],
-      ),
-    );
+        alignment: Alignment.center,
+        margin: const EdgeInsets.symmetric(vertical: 7),
+        padding: const EdgeInsets.only(top: 2, bottom: 2, left: 20, right: 5),
+        height: 45,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(18),
+            boxShadow: const [
+              BoxShadow(
+                  offset: Offset(0, 5), blurRadius: 20, color: Colors.black38)
+            ]),
+        child: const TextField(
+          decoration: InputDecoration(
+              hintText: "search your food",
+              hintStyle: TextStyle(
+                color: Colors.black38,
+              ),
+              enabledBorder: InputBorder.none,
+              focusedBorder: InputBorder.none,
+              suffixIcon: Icon(
+                Icons.search,
+                color: Colors.black54,
+              )),
+        ));
   }
 }

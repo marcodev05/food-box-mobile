@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_box/models/category.model.dart';
 
 // app.quicktype.io
 
@@ -10,18 +11,19 @@ class Menu {
   late double price;
   String? picture;
   bool? available;
-  int? categoryId;
+  Category? category;
   String? createdAt;
 
   Menu(
-      {this.menuId,
+      {
+        this.menuId,
         required this.name,
         required this.description,
         required this.quantity,
         required this.price,
         this.picture,
         this.available,
-        this.categoryId,
+        required this.category,
         this.createdAt});
 
   Menu.fromJson(Map<String, dynamic> json) {
@@ -32,12 +34,14 @@ class Menu {
     price = json['price'];
     picture = json['picture'];
     available = json['available'];
-    categoryId = json['categoryId'];
+    if(json['category'] != null){
+      category = Category.fromJson(json['category']);
+    }
     createdAt = json['createdAt'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['menuId'] = this.menuId;
     data['name'] = this.name;
     data['description'] = this.description;
@@ -45,13 +49,16 @@ class Menu {
     data['price'] = this.price;
     data['picture'] = this.picture;
     data['available'] = this.available;
-    data['categoryId'] = this.categoryId;
+    if (category != null) {
+      data['category'] = this.category?.toJson();
+    }
     data['createdAt'] = this.createdAt;
     return data;
   }
 }
 
-List<Menu> menus = [
+
+/*List<Menu> menus = [
   Menu(
       name: "pizza fruit",
       description: "avec tomate et beurre",
@@ -70,4 +77,5 @@ List<Menu> menus = [
       price: 100,
       quantity: 8,
       picture: "assets/test/burger.png")
-];
+];*/
+

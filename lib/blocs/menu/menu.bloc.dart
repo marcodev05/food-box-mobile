@@ -11,10 +11,12 @@ class MenusBloc extends Bloc<MenusEvent, MenusState> {
     on((LoadMenusEvent event, Emitter<MenusState> emit) async {
       try {
         emit(MenuLoadingState());
+        print("menu loaded state");
         List<Menu> menus = await menuService.fetchAllMenus();
         emit(MenuLoadedState(menus: menus));
-        print("menu loaded state");
+
       } catch (ex) {
+        print("errrrrorrrrrr");
         emit(MenuErrorState(message: "Erreur de connexion au serveur"));
       }
     });

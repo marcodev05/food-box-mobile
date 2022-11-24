@@ -22,10 +22,10 @@ class MainHeaderApp extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text("Livraison Rapide", style: TextStyle(
+                const Text("Fast Delivery", style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18 ),),
-                const Text("de nourriture", style: TextStyle(color: Colors.black54),),
+                const Text("snack food", style: TextStyle(color: Colors.black54),),
                 const SizedBox(height: 8),
                 Container(
                   padding: const EdgeInsets.all(7),
@@ -34,7 +34,7 @@ class MainHeaderApp extends StatelessWidget {
                       color: Theme.of(context).primaryColor),
                   child: Row(
                     children: [
-                      Text("Voir Menu", style: TextStyle(
+                      Text("View Menu", style: TextStyle(
                           color: Theme.of(context).canvasColor),
                           )
                     ],
