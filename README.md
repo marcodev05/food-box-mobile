@@ -1,6 +1,6 @@
 # food_box
 
-Food delivery app.
+Food delivery app with flutter.
 
 ## Getting Started
 
