@@ -104,22 +104,27 @@ class MyCart extends StatelessWidget {
                     },
                   )),
             ),
-            Container(
-                margin: const EdgeInsets.only(right: 30),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 40, vertical: 8),
-                height: 35,
-                decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(15))),
-                child: Row(
-                  children: [
-                    BigText(
-                      text: "Checkout",
-                      color: Theme.of(context).primaryColor,
-                    ),
-                  ],
-                ))
+            GestureDetector(
+              onTap: (){
+                Navigator.of(context).pushNamed('/maps');
+              },
+              child: Container(
+                  margin: const EdgeInsets.only(right: 30),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 40, vertical: 8),
+                  height: 35,
+                  decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(15))),
+                  child: Row(
+                    children: [
+                      BigText(
+                        text: "Checkout",
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ],
+                  )),
+            )
           ],
         ),
       ),

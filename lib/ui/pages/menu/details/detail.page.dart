@@ -98,17 +98,17 @@ class MenuDetails extends StatelessWidget {
                       children: const [
                         IconWithText(
                           icon: Icons.circle_sharp,
-                          text: 'size',
+                          text: 's',
                           iconColor: Colors.green,
                         ),
                         IconWithText(
                           icon: Icons.timer,
-                          text: '32min',
+                          text: 'min',
                           iconColor: Colors.yellow,
                         ),
                         IconWithText(
                           icon: Icons.star,
-                          text: '4.5',
+                          text: '4.0',
                           iconColor: Colors.orangeAccent,
                         ),
                       ]),
@@ -198,6 +198,10 @@ class MenuDetails extends StatelessWidget {
                 context
                     .read<CartBloc>()
                     .add(AddToCartEvent(menu: menu, quantity: qty));
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: BigText(text: "Added to cart"),
+                  backgroundColor: Colors.grey,
+                ));
               },
               child: Container(
                   margin: const EdgeInsets.only(right: 30),

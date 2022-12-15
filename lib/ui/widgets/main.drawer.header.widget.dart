@@ -14,11 +14,11 @@ class MainDrawerHeader extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: const [
-            CircleAvatar(
-                radius: 50,
-                //backgroundImage: AssetImage("images/profile.png")
+            Image(
+              image: AssetImage("assets/image/logo.png"),
+              width: 120,
+              height: 100,
             ),
-            Text("Maminiaina Marco"),
           ]
         )
     );

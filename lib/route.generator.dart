@@ -5,6 +5,7 @@ import 'package:food_box/models/menu.model.dart';
 import 'package:food_box/ui/pages/auth/login.page.dart';
 import 'package:food_box/ui/pages/cart/my_cart.page.dart';
 import 'package:food_box/ui/pages/home/home.page.dart';
+import 'package:food_box/ui/pages/maps/map_app.dart';
 import 'package:food_box/ui/pages/menu/details/detail.page.dart';
 import 'package:food_box/ui/pages/splash/splash_page.dart';
 import 'package:food_box/ui/widgets/bigtext.widget.dart';
@@ -20,11 +21,17 @@ class RouteGenerator {
       case '/splash':
         return MaterialPageRoute(
             builder: (context) => const SplashScreen());
+
       case '/':
         return MaterialPageRoute(
             builder: (context) => MyHomePage(title: "Food box"));
+
       case '/login':
         return MaterialPageRoute(builder: (context) => const Login());
+
+      case '/maps':
+        return MaterialPageRoute(builder: (context) => const MapApp());
+
       case '/myCart':
         return MaterialPageRoute(
             builder: (context) => BlocProvider.value(

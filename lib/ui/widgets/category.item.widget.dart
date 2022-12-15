@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../helpers/app_constant.dart';
 import '../../models/category.model.dart';
 
 class ItemCategory extends StatelessWidget {
@@ -10,8 +11,16 @@ class ItemCategory extends StatelessWidget {
 
   final Category category;
 
+
   @override
   Widget build(BuildContext context) {
+    String picture;
+      if(category.picture != null){
+        Uri url = Uri.parse(category.picture!);
+        picture = AppConstant.baseUrl + url.path;
+      }else {
+        picture = "${AppConstant.baseUrl}/downloadFile/pizza-pizza-remplie-tomates-salami-olives_140725-1200.jpg";
+      }
     return Container(
       margin: const EdgeInsets.all(4),
       width: 90,
@@ -30,9 +39,15 @@ class ItemCategory extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image(
-                    image: AssetImage(category.picture ?? "assets/test/pizza.png"), height: 50)
-              ],
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(40.0),
+                  child: Image.network(picture,
+                      height: 50,
+                    width: 60,
+
+                  ),
+                ),
+                ],
             ),
           ),
           Text(category.name ?? "",

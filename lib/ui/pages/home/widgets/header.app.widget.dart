@@ -22,7 +22,7 @@ class MainHeaderApp extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text("Fast Delivery", style: TextStyle(
+                const Text("Quick Delivery", style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18 ),),
                 const Text("snack food", style: TextStyle(color: Colors.black54),),

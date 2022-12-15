@@ -4,6 +4,7 @@ import 'package:food_box/blocs/category/category.bloc.dart';
 import 'package:food_box/blocs/category/category.state.dart';
 import 'package:food_box/ui/widgets/smalltext.widget.dart';
 
+import '../../helpers/app_constant.dart';
 import '../../models/category.model.dart';
 import 'bigtext.widget.dart';
 import 'category.item.widget.dart';
