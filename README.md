@@ -16,14 +16,15 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 # food-box-mobile screenshots
 
-Home page
+## Home page
 ![alt text](https://github.com/marcodev05/food-box-mobile/blob/master/screenshots/foodbox.PNG)
 
-Details page
+## Details page
+
 ![alt text](https://github.com/marcodev05/food-box-mobile/blob/master/screenshots/details.PNG)
 
-My Cart
+## My Cart
 ![alt text](https://github.com/marcodev05/food-box-mobile/blob/master/screenshots/mycart.PNG)
 
-Delivery address
+##Delivery address
 ![alt text](https://github.com/marcodev05/food-box-mobile/blob/master/screenshots/localisation%20adresse%20de%20livraison.PNG)
